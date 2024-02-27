@@ -1,0 +1,67 @@
+@startuml mascota
+class Mascota {
+    + Comer()
+    + Jugar()
+    - salud: Salud int 100
+
+}
+class Alimento
+class Salud 
+class Nombre 
+class Correa 
+class Placa 
+class Casa 
+class Hueso
+Class Defecar
+class Pasear 
+class Pelota {
+    -Posicion
+    - Color
+    + Vector: Vector2D
+    + Rebotar ()
+
+}
+class Agua
+Package Color{
+class Blanco
+class Cafe 
+class Negro 
+class Manchado
+}
+
+class Especie
+class Perro
+class Gato
+class Marmota
+class Emocion
+
+Correa -|> Pasear 
+Mascota "1" o-- "1" Pelota
+Pasear "*" -|> "*" Salud
+Defecar -|> Salud
+Mascota "1" *-- "1..*" Defecar
+Mascota "1" o-- "1" Hueso
+Mascota "1" o-- "1..*" Alimento
+Alimento "1" -|> "*" Salud
+Mascota *-- Salud
+Mascota "1" *-- "*" Nombre
+Mascota "1" o-- "1" Casa
+Mascota "1" o-- "3" Correa
+Mascota "1" *-- "1" Placa
+Placa "1" *-- "1" Nombre
+Casa "1" *-- "1" Nombre
+Hueso -|> Alimento
+Pasear *-- Defecar
+Mascota "1" *-- "4" Pasear
+Mascota "1" o-- "*" Agua
+Agua -|> Energia
+Mascota "1" o-- "1,4" Color
+Color "4" -|> "1" Blanco
+Color "4" -|> "1" Negro 
+Color "4" -|> "1" Cafe
+Color "4" -|> "1" Manchado
+Mascota -|> Especie
+Especie -|> Perro
+Especie -|> Marmota
+Especie -|> Gato
+@enduml
