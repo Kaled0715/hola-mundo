@@ -1,10 +1,20 @@
 @startuml mascota
+
+Package Color{
+    class Blanco int
+    class Cafe 
+    class Negro 
+    class Manchado
+}
+
+
 class Mascota {
     + Comer()
     + Jugar()
     - salud: Salud int 100
 
 }
+
 class Alimento
 class Salud 
 class Nombre 
@@ -22,13 +32,6 @@ class Pelota {
 
 }
 class Agua
-Package Color{
-class Blanco
-class Cafe 
-class Negro 
-class Manchado
-}
-
 class Especie
 class Perro
 class Gato
@@ -56,10 +59,6 @@ Mascota "1" *-- "4" Pasear
 Mascota "1" o-- "*" Agua
 Agua -|> Energia
 Mascota "1" o-- "1,4" Color
-Color "4" -|> "1" Blanco
-Color "4" -|> "1" Negro 
-Color "4" -|> "1" Cafe
-Color "4" -|> "1" Manchado
 Mascota -|> Especie
 Especie -|> Perro
 Especie -|> Marmota

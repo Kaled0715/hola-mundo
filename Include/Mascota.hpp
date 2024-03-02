@@ -1,3 +1,4 @@
+#pragma once
 class Mascota
 {
 private:
@@ -8,10 +9,10 @@ public:
     this->Energia = 0;
     }
     ~Mascota() {}
-    void Comer(){
-    this->Energia += 1;    
+    void Comer(Alimento alimento){
+    this->Energia += alimento.ExtraerEnergia();
     }
     int LeerEnergia(){
-    return this->Energia;   
+    return this->Energia;
     }
 };
